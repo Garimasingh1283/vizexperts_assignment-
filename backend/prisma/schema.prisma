@@ -1,0 +1,31 @@
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:root@localhost:3307/uploads"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Upload {
+  id           String   @id
+  filename     String
+  total_size   BigInt
+  total_chunks Int
+  status       String
+  final_hash   String?
+  created_at   DateTime @default(now())
+
+  chunks Chunk[]
+}
+
+model Chunk {
+  upload_id   String
+  chunk_index Int
+  status      String
+  received_at DateTime?
+
+  upload Upload @relation(fields: [upload_id], references: [id])
+
+  @@id([upload_id, chunk_index])
+}

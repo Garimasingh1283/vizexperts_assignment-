@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql_uploads
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: uploads
+    ports:
+      - "3307:3306"
