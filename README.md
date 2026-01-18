@@ -71,4 +71,6 @@ This enables accurate progress visualization and reliable resume behavior.
 
 ```bash
 docker-compose up --build
-
+```
+--- 
+## 🐳 The working video of the project can be downloaded with the raw files, added with the code section 
